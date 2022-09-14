@@ -184,7 +184,7 @@ generate({ template, inputs }).then((pdf) => {
 });
 ```
 
-You can create a PDF file like the below.
+You can create a PDF file like this below.
 
 ![](https://raw.githubusercontent.com/pdfme/pdfme/main/website/static/img/simplePdf.png)
 
