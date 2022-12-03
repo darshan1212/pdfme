@@ -33,17 +33,32 @@ const DeleteButton = ({ activeElements: aes }: { activeElements: HTMLElement[] }
       id={DELETE_BTN_ID}
       style={{
         position: 'absolute',
+        zIndex: 1,
         top,
         left,
+        height: 24,
+        width: 24,
         cursor: 'pointer',
         color: 'white',
         border: 'none',
         fontWeight: 'bold',
         borderRadius: 2,
         background: 'rgb(68, 170, 255)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
-      x
+      <svg
+        style={{ pointerEvents: 'none' }}
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
     </button>
   );
 };
@@ -218,7 +233,7 @@ const Main = (props: Props, ref: Ref<HTMLDivElement>) => {
         e.stopPropagation();
         setEditing(false);
       }}
-      style={{ overflowX: 'auto' }}
+      style={{ overflow: 'overlay' }}
     >
       <Selecto
         container={paperRefs.current[pageCursor]}

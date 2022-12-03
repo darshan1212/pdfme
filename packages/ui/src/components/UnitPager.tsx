@@ -8,6 +8,7 @@ import { Size } from '@pdfme/common';
 
 const buttonHeight = 38;
 const buttonWrapStyle: React.CSSProperties = {
+  pointerEvents: 'initial',
   position: 'sticky',
   zIndex: 1,
   backgroundColor: '#777777bd',
@@ -48,6 +49,7 @@ const UnitPager = ({ size, unitCursor, unitNum, setUnitCursor }: Props) => {
           position: 'sticky',
           width: '100%',
           zIndex: 1,
+          pointerEvents: 'none',
           top: `calc(50% - ${buttonHeight / 2}px)`,
           display: 'flex',
           alignItems: 'center',
