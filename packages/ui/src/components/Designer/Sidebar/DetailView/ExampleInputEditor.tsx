@@ -3,7 +3,7 @@ import { SchemaForUI } from '@pdfme/common';
 import { readFiles } from '../../../../helper';
 import { I18nContext } from '../../../../contexts';
 import { SidebarProps } from '..';
-import closeIcon from '../../../../assets/icons/close.svg';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 const ExampleInputEditor = (
   props: Pick<SidebarProps, 'changeSchemas'> & { activeSchema: SchemaForUI }
@@ -24,22 +24,22 @@ const ExampleInputEditor = (
                   top: 0,
                   left: 0,
                   display: 'flex',
-                  justifyContent: 'center',
                   alignItems: 'center',
+                  justifyContent: 'center',
                   color: '#333',
                   background: '#f2f2f2',
                   cursor: 'pointer',
                   borderRadius: 2,
                   border: '1px solid #767676',
-                  height: 20,
-                  width: 20,
+                  height: 24,
+                  width: 24,
                 }}
                 aria-label="close"
                 onClick={() =>
                   changeSchemas([{ key: 'data', value: '', schemaId: activeSchema.id }])
                 }
               >
-                <img src={closeIcon} alt="Close icon" width={10} />
+                <XMarkIcon width={10} height={10} />
               </button>
               <img style={{ maxHeight: 180 }} src={activeSchema.data} alt="Input Example" />
             </div>

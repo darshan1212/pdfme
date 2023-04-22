@@ -1,5 +1,8 @@
+// TODO そもそもこのpdfjs-distはtscでビルドできない
+// 昔のpdfmeのソースからwebpackのビルドに戻す
+// 多分tree-shakingは動かないかもしれないけど、とりあえず動くようにするべき
 // @ts-ignore
-import PDFJSWorker from 'pdfjs-dist/build/pdf.worker.entry';
+import PDFJSWorker from 'pdfjs-dist/build/pdf.worker.entry.js';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist/legacy/build/pdf.js';
 GlobalWorkerOptions.workerSrc = PDFJSWorker;
 import hotkeys from 'hotkeys-js';

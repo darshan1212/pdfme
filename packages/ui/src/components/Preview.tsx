@@ -4,7 +4,7 @@ import { ZOOM, RULER_HEIGHT } from '../constants';
 import UnitPager from './UnitPager';
 import Root from './Root';
 import Error from './Error';
-import CtlBar from './CtlBar';
+import CtlBar from './CtlBar/index';
 import Paper from './Paper';
 import SchemaUI from './Schemas/SchemaUI';
 import { useUIPreProcessor, useScrollPageCursor } from '../hooks';

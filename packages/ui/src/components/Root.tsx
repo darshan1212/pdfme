@@ -1,7 +1,5 @@
-import type {} from 'css-font-loading-module';
 import React, { useContext, forwardRef, ReactNode, Ref, useEffect } from 'react';
 import { Size } from '@pdfme/common';
-import { RULER_HEIGHT } from '../constants';
 import { FontContext } from '../contexts';
 import Spinner from './Spinner';
 
@@ -11,16 +9,21 @@ const Root = ({ size, scale, children }: Props, ref: Ref<HTMLDivElement>) => {
   const font = useContext(FontContext);
 
   useEffect(() => {
-    const fontFaces = Object.entries(font).map((entry) => {
-      const [key, value] = entry;
-      const fontFace = new FontFace(key, value.data);
+    if (!document || !document.fonts) return;
+    const fontFaces = Object.entries(font).map(
+      ([key, { data }]) =>
+        new FontFace(key, typeof data === 'string' ? `url(${data})` : data, {
+          display: 'swap',
+        })
+    );
+    // @ts-ignore
+    const newFontFaces = fontFaces.filter((fontFace) => !document.fonts.has(fontFace));
 
-      return fontFace.load();
-    });
-    Promise.all(fontFaces).then((loadedFontFaces) => {
+    Promise.allSettled(newFontFaces.map((f) => f.load())).then((loadedFontFaces) => {
       loadedFontFaces.forEach((loadedFontFace) => {
-        if (document && document.fonts && document.fonts.add) {
-          document.fonts.add(loadedFontFace);
+        if (loadedFontFace.status === 'fulfilled') {
+          // @ts-ignore
+          document.fonts.add(loadedFontFace.value);
         }
       });
     });

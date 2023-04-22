@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { SchemaForUI } from '@pdfme/common';
 import { I18nContext } from '../../../../contexts';
 import Divider from '../../../Divider';
-import { SidebarProps } from '..';
+import { SidebarProps } from '../index';
 import TextPropEditor from './TextPropEditor';
 import ExampleInputEditor from './ExampleInputEditor';
 import PositionAndSizeEditor from './PositionAndSizeEditor';

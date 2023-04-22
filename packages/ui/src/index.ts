@@ -2,9 +2,21 @@ import Designer from './Designer';
 import Form from './Form';
 import Viewer from './Viewer';
 
-export { Designer, Viewer, Form };
+import {
+  BLANK_PDF,
+  HELVETICA,
+  isTextSchema,
+  isImageSchema,
+  isBarcodeSchema,
+  checkTemplate,
+  checkUIProps,
+  checkPreviewProps,
+  checkDesignerProps,
+  checkGenerateProps,
+  validateBarcodeInput,
+} from '@pdfme/common';
 
-export type {
+import type {
   Lang,
   Size,
   Alignment,
@@ -28,7 +40,11 @@ export type {
 } from '@pdfme/common';
 
 export {
+  Designer,
+  Viewer,
+  Form,
   BLANK_PDF,
+  HELVETICA,
   isTextSchema,
   isImageSchema,
   isBarcodeSchema,
@@ -38,4 +54,27 @@ export {
   checkDesignerProps,
   checkGenerateProps,
   validateBarcodeInput,
-} from '@pdfme/common';
+};
+
+export type {
+  Lang,
+  Size,
+  Alignment,
+  SchemaType,
+  BarCodeType,
+  TextSchema,
+  ImageSchema,
+  BarcodeSchema,
+  Schema,
+  SchemaForUI,
+  Font,
+  BasePdf,
+  Template,
+  CommonProps,
+  GeneratorOptions,
+  GenerateProps,
+  UIOptions,
+  UIProps,
+  PreviewProps,
+  DesignerProps,
+};

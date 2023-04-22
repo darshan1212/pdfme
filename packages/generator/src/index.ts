@@ -1,8 +1,18 @@
-import generate from './generate';
-
-export { generate };
-
-export type {
+import generate from './generate.js';
+import {
+  BLANK_PDF,
+  HELVETICA,
+  isTextSchema,
+  isImageSchema,
+  isBarcodeSchema,
+  checkTemplate,
+  checkUIProps,
+  checkPreviewProps,
+  checkDesignerProps,
+  checkGenerateProps,
+  validateBarcodeInput,
+} from '@pdfme/common';
+import type {
   Lang,
   Size,
   Alignment,
@@ -26,7 +36,9 @@ export type {
 } from '@pdfme/common';
 
 export {
+  generate,
   BLANK_PDF,
+  HELVETICA,
   isTextSchema,
   isImageSchema,
   isBarcodeSchema,
@@ -36,4 +48,26 @@ export {
   checkDesignerProps,
   checkGenerateProps,
   validateBarcodeInput,
-} from '@pdfme/common';
+};
+export type {
+  Lang,
+  Size,
+  Alignment,
+  SchemaType,
+  BarCodeType,
+  TextSchema,
+  ImageSchema,
+  BarcodeSchema,
+  Schema,
+  SchemaForUI,
+  Font,
+  BasePdf,
+  Template,
+  CommonProps,
+  GeneratorOptions,
+  GenerateProps,
+  UIOptions,
+  UIProps,
+  PreviewProps,
+  DesignerProps,
+};

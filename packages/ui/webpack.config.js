@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const pkg = require('./package.json');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -15,18 +14,13 @@ const BANNER = [
 const config = {
   optimization: { minimize: isProduction },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.png', '.svg'],
+    extensions: ['.ts', '.tsx', '.js'],
     alias: { process: 'process/browser' },
   },
   plugins: [
     // new BundleAnalyzerPlugin(),
-    new webpack.ProvidePlugin({
-      process: 'process/browser',
-    }),
-    new webpack.BannerPlugin({
-      banner: BANNER,
-      entryOnly: true,
-    }),
+    new webpack.ProvidePlugin({ process: 'process/browser' }),
+    new webpack.BannerPlugin({ banner: BANNER, entryOnly: true }),
   ],
   devtool: 'source-map',
   entry: './src/index.ts',
@@ -34,21 +28,8 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     globalObject: 'this',
-    library: {
-      type: 'umd',
-    },
+    library: { type: 'umd' },
   },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-      },
-      {
-        test: /\.(png|svg|ttf)$/i,
-        use: ['url-loader'],
-      },
-    ],
-  },
+  module: { rules: [{ test: /\.tsx?$/, use: 'ts-loader' }] },
 };
 module.exports = config;

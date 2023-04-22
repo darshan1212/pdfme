@@ -5,8 +5,9 @@ import {
   DEFAULT_CHARACTER_SPACING,
   DEFAULT_FONT_COLOR,
   BLANK_PDF,
-} from './constants';
-import { schemaTypes, isImageSchema, isBarcodeSchema, isTextSchema } from './type';
+  HELVETICA,
+} from './constants.js';
+import { schemaTypes, isImageSchema, isBarcodeSchema, isTextSchema } from './type.js';
 import type {
   Lang,
   Size,
@@ -30,7 +31,7 @@ import type {
   PreviewReactProps,
   DesignerProps,
   DesignerReactProps,
-} from './type';
+} from './type.js';
 import {
   getB64BasePdf,
   b64toUint8Array,
@@ -45,7 +46,7 @@ import {
   checkDesignerProps,
   checkGenerateProps,
   validateBarcodeInput,
-} from './helper';
+} from './helper.js';
 
 export {
   DEFAULT_FONT_SIZE,
@@ -54,6 +55,7 @@ export {
   DEFAULT_CHARACTER_SPACING,
   DEFAULT_FONT_COLOR,
   BLANK_PDF,
+  HELVETICA,
   schemaTypes,
   isTextSchema,
   isImageSchema,

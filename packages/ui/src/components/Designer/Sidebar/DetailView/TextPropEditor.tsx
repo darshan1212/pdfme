@@ -9,7 +9,7 @@ import {
 } from '@pdfme/common';
 import { FontContext } from '../../../../contexts';
 import { SidebarProps } from '..';
-import closeIcon from '../../../../assets/icons/close.svg';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 const inputStyle = {
   width: '90%',
@@ -53,14 +53,15 @@ const ColorInputSet = (props: {
           onClick={onClear}
           style={{
             display: 'flex',
-            background: 'none',
             alignItems: 'center',
+            justifyContent: 'center',
+            background: 'none',
             borderRadius: 2,
             border: '1px solid #767676',
             cursor: 'pointer',
           }}
         >
-          <img src={closeIcon} width={10} alt="Close icon" />
+          <XMarkIcon width={10} height={10} />
         </button>
       </div>
     </div>

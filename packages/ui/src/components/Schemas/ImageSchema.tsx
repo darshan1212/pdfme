@@ -1,9 +1,9 @@
-import React, { useState, forwardRef, ChangeEvent, useContext, Ref } from 'react';
+import React, { useState, forwardRef, ChangeEvent, Ref } from 'react';
 import { ImageSchema } from '@pdfme/common';
 import { SchemaUIProps } from './SchemaUI';
 import { readFiles } from '../../helper';
 import { ZOOM } from '../../constants';
-import closeIcon from '../../assets/icons/close.svg';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 type Props = SchemaUIProps & { schema: ImageSchema };
 
@@ -46,8 +46,8 @@ const ImageSchemaUI = (props: Props, ref: Ref<HTMLInputElement>) => {
               borderRadius: 2,
               border: '1px solid #767676',
               cursor: 'pointer',
-              height: 20,
-              width: 20,
+              height: 24,
+              width: 24,
             }}
             aria-label="close"
             onClick={() => {
@@ -55,7 +55,7 @@ const ImageSchemaUI = (props: Props, ref: Ref<HTMLInputElement>) => {
               onChange('');
             }}
           >
-            <img src={closeIcon} alt="Close icon" width={10} />
+            <XMarkIcon width={10} height={10} />
           </button>
         )}
       </div>

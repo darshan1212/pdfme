@@ -84,10 +84,10 @@ export abstract class BaseUIClass {
     this.domContainer = domContainer;
     this.template = generateColumnsAndSampledataIfNeeded(cloneDeep(template));
     this.size = {
-      height: this.domContainer.clientHeight || window.innerHeight,
-      width: this.domContainer.clientWidth || window.innerWidth,
+      height: this.domContainer!.clientHeight || window.innerHeight,
+      width: this.domContainer!.clientWidth || window.innerWidth,
     };
-    this.resizeObserver.observe(this.domContainer);
+    this.resizeObserver.observe(this.domContainer!);
 
     if (lang) {
       this.lang = lang;
@@ -135,6 +135,7 @@ export abstract class BaseUIClass {
   public destroy() {
     if (!this.domContainer) throw Error(DESTROYED_ERR_MSG);
     ReactDOM.unmountComponentAtNode(this.domContainer);
+
     this.resizeObserver.unobserve(this.domContainer);
     this.domContainer = null;
   }
